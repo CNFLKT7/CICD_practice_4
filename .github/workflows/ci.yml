@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  pull_request:
+    pull_request:
 
 jobs:
   test:
@@ -24,7 +24,8 @@ jobs:
           pip install pytest
 
       - name: Run tests
-        run: pytest
+        run:
+          pytest
 
   build:
     needs: test
@@ -34,4 +35,4 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Build Docker image
-        run: docker build -t myapp:latest .
+        run: docker build -t my-app .
